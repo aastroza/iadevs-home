@@ -114,8 +114,10 @@ def stacked_cards_section():
             Div(
                 Div(
                     P("TECH STACK", cls="mono-body text-opacity-60"),
-                    H2("Components and sections exemplified via FastHTML.", cls="text-black heading-2"),
-                    P("Python developers can now create UI.", Br(), "The right way.", cls=f"l-body {maxrem(32)}"),
+                    H2("FastHTML: Built for you", cls="text-black heading-2"),
+                    P("FastHTML scales up and scales down. Read more about our design philosophy ", 
+                        A("here.", href="/", cls="border-b-2 border-b-black/30 hover:border-b-black/80"), 
+                        cls=f"l-body {maxrem(32)}"),
                     cls=f"{maxrem(50)} mx-auto {col} {center} text-center gap-6"),
                 cls="py-8 lg:pt-16 px-4 lg:px-16 rounded-t-3xl lg:rounded-t-[2.5rem] bg-green"),
             cls="bg-purple sticky top-0 bottom-[calc(100%-300px)] w-full"),
