@@ -60,7 +60,7 @@ async def get():
 document.querySelectorAll(".copy-button").forEach((button) => {
   button.addEventListener("click", async () => {
     const codeContainer = button.closest(".code-container");
-    const codeId = codeContainer.querySelector("pre").id;
+    const codecontents = codeContainer.querySelector("code").innerText;
     // const buttonContent = button.querySelector(".button-content");
     const copiedText = button.querySelector(".copied-text");
 
@@ -74,7 +74,7 @@ document.querySelectorAll(".copy-button").forEach((button) => {
 
     try {
       button.disabled = true;
-      await navigator.clipboard.writeText(preformattedCode[codeId]);
+      await navigator.clipboard.writeText(codecontents);
 
       setTimeout(() => {
         copiedText.style.transform = "translateX(0rem)";
