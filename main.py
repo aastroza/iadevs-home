@@ -97,8 +97,11 @@ async def component_preview_section():
     cs = await components()
     return Section(
         Div(
-        H3("You're using a FastHTML app right now!", cls="text-white/80 heading-3 pt-8"),
-        P("Click the buttons below to see four small, live components in action.", cls=f"text-white/80 pt-8 l-body {maxrem(32)}"),
+        Div(
+            H2("You're using a FastHTML app right now!", cls="text-white heading-2 pt-8"),
+            P("Click the buttons below to see four small, live components in action.", cls=f"text-white pt-8 l-body {maxrem(32)}"),
+            cls=f"{maxrem(50)} mx-auto {col} {center} text-center gap-6"
+        ),
         *[code_demo(title, file_name, code_snippet, demo_content, i == 0) for i, (title, file_name, code_snippet, demo_content) in enumerate(cs)],
         Ul(
             *[tab_button(title, i == 0) for i, (title, _, _, _) in enumerate(cs)],
