@@ -226,7 +226,7 @@ hdrs = [
         description=description,
         site_name='fastht.ml',
         twitter_site='@answerdotai',
-        image=f'/assets/og-image.png',
+        image=f'/assets/og-sq.png',
         url=''),
     surrsrc, scopesrc,
     Link(href='css/main.css', rel='stylesheet'),
