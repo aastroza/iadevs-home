@@ -2,11 +2,12 @@ from fasthtml.common import *
 from inspect import getsource
 from home_components import accordion,col,inset,bnset
 
+eg_url = 'https://github.com/AnswerDotAI/fasthtml-example/tree/main'
 samples = [
-    ("Game of life", "game-of-life.svg", "https://game-of-life-production-ed7f.up.railway.app/"),
-    ("To-do", "todo.svg", "https://todos-vercel-ivory.vercel.app/"),
-    ("Chat bot", "chat-bot.svg", "https://github.com/AnswerDotAI/fasthtml-example/tree/main/chatbot_example"),
-    ("Pictionary AI", "pictionary-ai.svg", "https://ai-pictionary.up.railway.app/")
+    ("Game of life", "game-of-life.svg", f"{eg_url}/00_game_of_life"),
+    ("To-do", "todo.svg", f"{eg_url}/01_todo_app"),
+    ("Chat bot", "chat-bot.svg", f"{eg_url}/02_chatbot"),
+    ("Pictionary AI", "pictionary-ai.svg", f"{eg_url}/03_pictionary")
 ]
 
 from weather import all_weather
@@ -83,18 +84,18 @@ async def components():
 
 stacked = [
     ("Build on solid foundations", "FastHTML stands on the shoulders of giants:", [
-        ("Python", "python.svg", "https://www.python.org/"),
-        ("Uvicorn", "uvicorn.png", "https://www.uvicorn.org/"),
-        ("ASGI", "asgi_logo-color.svg", "https://asgi.readthedocs.io/en/latest/"),
-        ("Starlette", "starlette.svg", "https://www.starlette.io/"),
-        ("HTMX", "htmx.svg", "https://htmx.org/"),
+        ("ASGI", "asgi_logo-color.svg", "https://about.fastht.ml/foundation#sec1"),
+        ("HTMX", "htmx.svg", "https://about.fastht.ml/foundation#sec1"),
+        ("HTTP", "", "https://about.fastht.ml/foundation#sec3"),
+        ("HTML", "", "https://about.fastht.ml/components"),
     ]),
     ("Use tools you already know", "FastHTML embraces the familiar:", [
-        ("Python", "python.svg", "https://www.python.org/"),
-        ("HTMX", "htmx.svg", "https://htmx.org/"),
-        ("SQLite", "sqlite370_banner.gif", "https://www.sqlite.org/"),
+        ("Python", "python.svg", "https://about.fastht.ml/tech#sec1"),
+        ("Uvicorn", "uvicorn.png", "https://about.fastht.ml/tech#sec3"),
+        ("Starlette", "starlette.svg", "https://about.fastht.ml/tech#sec4"),
+        ("SQLite", "sqlite370_banner.gif", "https://about.fastht.ml/tech#sec5"),
     ]),
-    ("Deploy anywhere", "FastHTML runs anywhere Python does:", [
+    ("Deploy anywhere", "FastHTML runs anywhere Python does, including 1-click deploy to:", [
         ("Railway", "railway.svg", "https://railway.app/"),
         ("Hugging Face", "hugging-face.svg", "https://huggingface.co/"),
         ("Vercel", "vercel.svg", "https://vercel.com/"),

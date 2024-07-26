@@ -2,6 +2,9 @@ from fasthtml.common import *
 from home_components import *
 from content import *
 
+_blank = dict(target="_blank", rel="noopener noreferrer")
+description = 'Modern web applications in pure Python'
+
 def benefit(title, content):
     return Div(
         H3(title, cls=f"text-black heading-3"),
@@ -23,7 +26,8 @@ def hero_section():
             A(
                 Img(src='/assets/logo.svg', alt='FastHTML', width='105', height='24'),
                 href='#'),
-            A('Try now', href='/', cls=f'{bnset} bg-black text-white py-2 px-4 s-body rounded-[62.5rem] hover:bg-black/80 transition-colors duration-300 px-4 py-1 h-10 {center} justify-center'),
+            A('Read docs', href='https://docs.fastht.ml', **_blank,
+              cls=f'bg-black text-white py-2 px-4 s-body rounded-[62.5rem] hover:bg-black/80 transition-colors duration-300 px-4 py-1 h-10 {center} justify-center'),
             cls=f'py-2 px-4 {between} items-center rounded-full w-full max-w-[400px] bg-white/50 backdrop-blur-lg border border-white/20'),
         cls=f'fixed top-0 w-full left-0 p-4 {center} justify-center z-50'),
     Section(
@@ -33,13 +37,14 @@ def hero_section():
         Div(
             Div(cls='lg:flex-1 max-lg:basis-[152px]'),
             Div(
-                H1('Real web applications the right way', cls='heading-1 max-w-3xl'),
+                H1(description, cls='heading-1 max-w-3xl'),
                 P('Built on solid web foundations, not the latest fads - with\nFastHTML you can get started on anything from simple dashboards to\nscalable web applications in minutes.',
                     cls='m-body max-w-[40rem] text-center'),
                 cls=f'flex-1 {col} items-center justify-center gap-6 text-center w-full text-black'
             ),
             Div(
-                A('See examples', cls=f'{bnset} m-body px-4 py-1 rounded-full bg-black hover:bg-black/80 transition-colors duration-300 text-white h-[76px] w-full max-w-[350px] flex items-center justify-center', href='/'),
+                A('Learn more', href='https://about.fastht.ml', **_blank,
+                    cls=f'{bnset} m-body px-4 py-1 rounded-full bg-black hover:bg-black/80 transition-colors duration-300 text-white h-[76px] w-full max-w-[350px] flex items-center justify-center'),
                 video_button('Watch intro', '/assets/thumb.png', '7min 30sec', "QqZUzkPcU7A?si=lTtHuMT5HPC66-49"),
                 cls=f'flex-1 {center} justify-center content-center flex-wrap lg:gap-6 gap-4 m-body'),
                 video_player('Try now'),
@@ -98,7 +103,7 @@ async def component_preview_section():
     return Section(
         Div(
         Div(
-            H2("You're using a FastHTML app right now!", cls="text-white heading-2 pt-8"),
+            H2("This home page is a FastHTML app.", cls="text-white heading-2 pt-8"),
             P("Click the buttons below to see four small, live components in action.", cls=f"text-white pt-8 l-body {maxrem(32)}"),
             cls=f"{maxrem(50)} mx-auto {col} {center} text-center gap-6"
         ),
@@ -117,13 +122,15 @@ def stacked_cards_section():
             Div(
                 Div(
                     P("TECH STACK", cls="mono-body text-opacity-60"),
-                    H2("FastHTML: Built for you", cls="text-black heading-2"),
-                    P("FastHTML scales up and scales down. Read more about our design philosophy ", 
-                        A("here.", href="/", cls="border-b-2 border-b-black/30 hover:border-b-black/80"), 
+                    H2("FastHTML scales up and scales down.", cls="text-black heading-2"),
+                    P("Read more about our ", 
+                        A("design philosophy here", href="https://about.fastht.ml/vision", **_blank,
+                          cls="border-b-2 border-b-black/30 hover:border-b-black/80"),
+                        ", or click a button below:",
                         cls=f"l-body {maxrem(32)}"),
                     cls=f"{maxrem(50)} mx-auto {col} {center} text-center gap-6"),
                 cls="py-8 lg:pt-16 px-4 lg:px-16 rounded-t-3xl lg:rounded-t-[2.5rem] bg-green"),
-            cls="bg-purple sticky top-0 bottom-[calc(100%-300px)] w-full"),
+            cls="bg-yellow sticky top-0 bottom-[calc(100%-300px)] w-full"),
         Div(
             Div(
                 *[stacked_card(title, description, tech_stack, "bg-soft-green") for title, description, tech_stack in stacked],
@@ -147,18 +154,19 @@ def samples_section():
                     cls="group px-2"
                 ) for name, svg, url in samples],
                 cls="grid max-w-5xl lg:grid-cols-4 lg:max-w-7xl lg:gap-x-12 grid-cols-2 gap-x-4 gap-y-8 w-full mx-auto"),
-            A("Discover all", href="/", cls=f"{bnset} bg-black text-white py-2 px-4 s-body rounded-full hover:bg-black/70 transition-colors duration-300")),
-        "grey")
+            A("Discover all", href=eg_url,
+                cls=f"{bnset} bg-black text-white py-2 px-4 s-body rounded-full hover:bg-black/70 transition-colors duration-300")),
+        bg_color="grey")
 
 def how_it_works_section():
-    msg = "With FastHTML you create good-looking modern web applications in pure Python and deploy them in minutes"
+    msg = "With FastHTML you create good-looking modern web applications in pure Python and deploy them in minutes."
     return section_wrapper(
         (Div(
-            section_header( "GET STARTED IN MINUTES", "The fastest way to create a real web application", msg),
+            section_header( "GET STARTED IN MINUTES", "The fastest way to create a real web application.", msg),
             cls="max-w-3xl w-full mx-auto flex-col items-center text-center gap-6 mb-8 lg:mb-8"),
             Div(*[benefit(title, content) for title, content in benefits],
                 cls=f"{col} w-full lg:flex-row gap-4 items-center lg:gap-8 max-w-7xl mx-auto justify-center"),),
-        "yellow", flex=False)
+        bg_color="yellow", flex=False)
 
 def faq_section():
     return section_wrapper(
@@ -169,18 +177,19 @@ def faq_section():
                 *[faq_item(question, answer, i+3) for i, (question, answer) in enumerate(faqs)],
                 cls=f"{col} gap-4 {maxrem(32)} transition ease-out delay-[300ms]"),
             cls=f"{section_base} w-full mx-auto lg:flex-row items-start max-w-7xl"),
-        "blue")
+        bg_color="blue")
 
 def testimonials_section():
     testimonial_cards = [testimonial_card(i, *args) for i, args in enumerate(testimonials)]
     return section_wrapper(
         Div(
             section_header(
-                "LOVE IS IN THE AIR", "What the experts say", "Top web programmers tell us that they love working with FastHTML.",
+                "LOVE IS IN THE AIR", "What the experts say",
+                "Top web programmers tell us that they love working with FastHTML.",
                 max_width=21, center=False),
             carousel(testimonial_cards),
             cls=f"{section_base} {maxrem(90)} mx-auto lg:flex-row items-start"),
-        "pink")
+        bg_color="pink")
 
 def footer_link(text, href, **kw):
     return Li(A(
@@ -192,12 +201,12 @@ def footer():
     return Section(
         Div(
             Div(
-                P("© 2024 AnswerDotAI. All rights reserved.", cls="mr-auto"),
+                P("© 2024 onwards AnswerDotAI. All rights reserved.", cls="mr-auto"),
                 Nav(
                     Ul(
-                    footer_link("Join Discord", "/"),
-                    footer_link("Docs", "/"),
-                    footer_link("Site credit", "https://tinloof.com/", target="_blank", rel="noopener noreferrer"),
+                    footer_link("Join Discord", "https://discord.gg/qcXvcxMhdP", **_blank),
+                    footer_link("Docs", "https://docs.fastht.ml", **_blank),
+                    footer_link("Site design", "https://tinloof.com/", **_blank),
                     cls="flex max-lg:flex-col max-lg:items-start gap-4 lg:gap-6 flex-wrap")),
                 cls="relative z-[1] mono-s flex max-lg:flex-col gap-6 text-white/80 px-4 lg:px-16 pb-16"),
             Div(
@@ -211,10 +220,10 @@ def footer():
 hdrs = [
     Meta(charset='UTF-8'),
     Meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0'),
-    Meta(name='description', content='Real web applications the right way'),
+    Meta(name='description', content=description),
     *Favicon('favicon.ico', 'favicon-dark.ico'),
     *Socials(title='FastHTML',
-        description='Real web applications the right way',
+        description=description,
         site_name='fastht.ml',
         twitter_site='@answerdotai',
         image=f'/assets/og-image.png',
@@ -245,11 +254,11 @@ from fastcore.xtras import timed_cache
 
 @timed_cache(seconds=60)
 async def home():
-    return (Title("FastHTML - Real web applications the right way"), 
+    return (Title(f"FastHTML - {description}"), 
         Main(
             hero_section(),
-            how_it_works_section(),
             await component_preview_section(),
+            how_it_works_section(),
             stacked_cards_section(),
             samples_section(),
             faq_section(),
