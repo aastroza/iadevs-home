@@ -86,8 +86,8 @@ stacked = [
     ("Build on solid foundations", "FastHTML stands on the shoulders of giants:", [
         ("ASGI", "asgi_logo-color.svg", "https://about.fastht.ml/foundation#sec1"),
         ("HTMX", "htmx.svg", "https://about.fastht.ml/foundation#sec1"),
-        ("HTTP", "", "https://about.fastht.ml/foundation#sec3"),
-        ("HTML", "", "https://about.fastht.ml/components"),
+        ("HTTP", "http-domain-svgrepo-com.svg", "https://about.fastht.ml/foundation#sec3"),
+        ("HTML", "html-1.svg", "https://about.fastht.ml/components"),
     ]),
     ("Use tools you already know", "FastHTML embraces the familiar:", [
         ("Python", "python.svg", "https://about.fastht.ml/tech#sec1"),
