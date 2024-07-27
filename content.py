@@ -58,8 +58,8 @@ db = database('data/todos.db')
 class Todo:
     "Use any database system you like"
     id:int; title:str; done:bool
-    def __xt__(self):
-        "`__xt__` defines how FastHTML renders an object"
+    def __ft__(self):
+        "`__ft__` defines how FastHTML renders an object"
         return Li("✅ " if self.done else "", self.title)
 
 todos = db.create(Todo)
