@@ -44,7 +44,7 @@ def carousel(items, id="carousel-container", extra_classes=""):
 
 def testimonial_card(idx, comment, name, role, company, image_src):
     return Div(
-        P(comment, cls=f"m-body text-black"),
+        P(comment, cls="m-body text-black"),
         Div(
             Div(Img(src=image_src, alt=f"Picture of {name}", width="112", height="112"),
                 cls="rounded-full w-11 h-11 lg:w-14 lg:h-14"),
