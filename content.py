@@ -133,7 +133,7 @@ gr_test = Div(Ul(Li('ergonomic af'), Li('fast af'), Li('slick af'), Li('SSR af')
              P(A('(From twitter)', href='https://x.com/rauchg/status/1807965785585078773', cls="border-b-2 border-b-black/30 hover:border-b-black/80")))
 testimonials = [
     ("FastHTML is as intuitive as FastAPI, lends itself to clean architecture, and its HTML+HTMX structure makes it a good competitor to Django for building webapps. Most importantly, it's fun to use.",
-        "Daniel Roy Greenfield", "Co-author", "Two Scoops of Django", "assets/testimonials/daniel-roy.png"),
+        "Daniel Roy Greenfeld", "Co-author", "Two Scoops of Django", "assets/testimonials/daniel-roy.png"),
     ("Python has always been a wonderful tool for creating web applications; with FastHTML, it's even better!",
         "Giles Thomas", "Founder", "PythonAnywhere", "assets/testimonials/giles-thomas.png"),
     ("With FastHTML and Railway, Pythonistas can now have a real web application running in minutes, and can scale it all the way up to sophisticated production deployments.",
