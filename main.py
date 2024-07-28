@@ -269,4 +269,4 @@ async def home():
 @rt("/")
 async def get(): return await home()
 
-run_uv()
+serve()
