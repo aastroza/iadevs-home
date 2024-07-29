@@ -97,8 +97,8 @@ stacked = [
     ]),
     ("Deploy anywhere", "FastHTML runs anywhere Python does, including 1-click deploy to:", [
         ("Railway", "railway.svg", "https://railway.app/"),
+        ("Vercel", "vercel.svg", "https://vercel.com/templates/python/fasthtml-python-boilerplate"),
         ("Hugging Face", "hugging-face.svg", "https://huggingface.co/"),
-        ("Vercel", "vercel.svg", "https://vercel.com/"),
         ("PythonAnywhere", "python-anywhere.svg", "https://www.pythonanywhere.com/"),
     ]),
 ]
