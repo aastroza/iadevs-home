@@ -138,7 +138,7 @@ testimonials = [
         "Giles Thomas", "Founder", "PythonAnywhere", "assets/testimonials/giles-thomas.png"),
     ("With FastHTML and Railway, Pythonistas can now have a real web application running in minutes, and can scale it all the way up to sophisticated production deployments.",
         "Jake Cooper", "CEO", "Railway.app", "assets/testimonials/jake-cooper.png"),
-    (gr_test, "Guillermo Rauch", "CEO", "Vercel", "assets/testimonials/guillermo-rauch.png"),
+    (gr_test, "Guillermo Rauch", "CEO", "Vercel", "assets/testimonials/guillermo-rauch.jpg"),
     # ("FastHTML is a breath of fresh air. It's simple, it's fast, and it's fun to use.",
     #     "Jake Cooper", "CEO", "Railway.app", "assets/testimonials/jake-cooper.png"),
 ]
