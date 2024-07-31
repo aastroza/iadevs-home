@@ -204,6 +204,7 @@ def footer():
                 P("© 2024 onwards AnswerDotAI. All rights reserved.", cls="mr-auto"),
                 Nav(
                     Ul(
+                    footer_link("Github", "https://github.com/AnswerDotAI/fasthtml", **_blank),
                     footer_link("Join Discord", "https://discord.gg/qcXvcxMhdP", **_blank),
                     footer_link("Docs", "https://docs.fastht.ml", **_blank),
                     footer_link("Site design", "https://tinloof.com/", **_blank),
