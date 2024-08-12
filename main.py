@@ -78,17 +78,21 @@ def code_display(file_name, code_snippet, snippet_id):
 
 
 def code_demo(title, file_name, code_snippet, demo_content, is_active=False):
-    demo_cls = "flex flex-col items-center justify-center p-4 lg:p-8 w-full max-w-2xl lg:max-w-md lg:mx-28 lg:my-8 bg-soft-purple rounded-3xl h-full"
     snippet_id = f"{title.lower().replace(' ', '-')}-code-snippet"
     return Div(
-        code_display(file_name, code_snippet, snippet_id),
+        Div(
+            code_display(file_name, code_snippet, snippet_id),
+            cls="lg:justify-start lg:items-start justify-center items-center",
+        ),
         Div(
             demo_content,
-            cls="flex flex-col items-center justify-center p-4 lg:p-8 w-full max-w-2xl lg:max-w-md lg:mx-28 lg:my-8 bg-soft-purple rounded-3xl h-full overflow-y-auto",
+            cls="flex flex-col items-center justify-center p-4 lg:p-8 w-full max-w-2xl lg:max-w-md lg:mx-28 lg:my-8 bg-soft-purple rounded-3xl h-96 hide-scrollbar",
+            style="overflow-y: auto;",
+            id=f"{title.lower().replace(' ', '-')}-demo-content"
         ),
         aria_labelledby=f"tab-{title.lower().replace(' ', '-')}",
         role="tabpanel",
-        cls=f"code-container pt-8 lg:pt-16 tab-panel relative hide-scrollbar toggle-element flex flex-col lg:flex-row justify-between w-full lg:max-w-[1440px] xl:mx-auto {'hidden' if not is_active else ''}",
+        cls=f"code-container pt-8 lg:pt-16 tab-panel relative hide-scrollbar toggle-element flex flex-col lg:flex-row justify-center items-center lg:justify-between w-full lg:max-w-[1440px] xl:mx-auto {'hidden' if not is_active else ''}",
         id=f"{title.lower().replace(' ', '-')}-code-demo",
     )
 

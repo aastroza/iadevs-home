@@ -10,52 +10,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
   tabButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const currentButtonContainer = button.parentElement;
-      const currentButtonContainerRect =
-        currentButtonContainer.getBoundingClientRect();
-      // Scroll the tab list to the clicked button
-      // Try to center it, go as far as possible
-      const offset =
-        currentButtonContainerRect.left -
-        tabListRect.left +
-        currentButtonContainerRect.width / 2 -
-        tabListRect.width / 2;
-      tabList.scrollBy({ left: offset, behavior: "smooth" });
+			const currentButtonContainer = button.parentElement;
+			const currentButtonContainerRect =
+				currentButtonContainer.getBoundingClientRect();
+			// Scroll the tab list to the clicked button
+			// Try to center it, go as far as possible
+			const offset =
+				currentButtonContainerRect.left -
+				tabListRect.left +
+				currentButtonContainerRect.width / 2 -
+				tabListRect.width / 2;
+			tabList.scrollBy({ left: offset, behavior: "smooth" });
 
-      // Make highlighter follow the clicked button
-      const highlighter = document.getElementById("highlighter");
-      // Remove 'active' class from all button containers
-      codeContainers.forEach((container) => {
-        container.style.display = "none";
-      });
+			// Make highlighter follow the clicked button
+			const highlighter = document.getElementById("highlighter");
+			// Remove 'active' class from all button containers
+			codeContainers.forEach((container) => {
+				container.style.display = "none";
+			});
 
-      tabButtons.forEach((btn) => {
-        btn.parentElement.ariaSelected = false;
-        btn.parentElement.classList.remove("active");
-        btn.parentElement.classList.add("text-white/80");
-        btn.parentElement.classList.add("hover:text-white");
-        btn.parentElement.classList.remove("text-white");
-      });
+			tabButtons.forEach((btn) => {
+				btn.parentElement.ariaSelected = false;
+				btn.parentElement.classList.remove("active");
+				btn.parentElement.classList.add("text-white/80");
+				btn.parentElement.classList.add("hover:text-white");
+				btn.parentElement.classList.remove("text-white");
+			});
 
-      // Add 'active' class to the clicked button
-      const activeCodeContainer = document.getElementById(
-        button.dataset.target
-      );
-      activeCodeContainer.style.display = "flex";
-      currentButtonContainer.ariaSelected = true;
-      currentButtonContainer.classList.add("active");
-      currentButtonContainer.classList.add("text-white");
-      currentButtonContainer.classList.remove("text-white/80");
+			// Add 'active' class to the clicked button
+			const activeCodeContainer = document.getElementById(
+				button.dataset.target
+			);
+			activeCodeContainer.style.display = "flex";
+			currentButtonContainer.ariaSelected = true;
+			currentButtonContainer.classList.add("active");
+			currentButtonContainer.classList.add("text-white");
+			currentButtonContainer.classList.remove("text-white/80");
 
-      // Move highlighter to the clicked button
-      const buttonRect = currentButtonContainer.getBoundingClientRect();
-      const firstButtonContainerRect =
-        firstButtonContainer.getBoundingClientRect();
+			// Move highlighter to the clicked button
+			const buttonRect = currentButtonContainer.getBoundingClientRect();
+			const firstButtonContainerRect =
+				firstButtonContainer.getBoundingClientRect();
 
-      const translateX = buttonRect.x - firstButtonContainerRect.x;
+			const translateX = buttonRect.x - firstButtonContainerRect.x;
 
-      highlighter.style.transform = `translateX(${translateX}px)`;
-    });
+			highlighter.style.transform = `translateX(${translateX}px)`;
+
+			const reusableCodeDemo = document.getElementById("reusable-code-demo");
+			const dynamicCodeDemo = document.getElementById("dynamic-code-demo");
+			const reusableDemoContent = document.getElementById("reusable-demo-content");
+			if (reusableCodeDemo) {
+				reusableCodeDemo.style.height = '552px';
+				dynamicCodeDemo.style.height = '552px';
+				if (button.id === "tab-reusable") {
+					if (window.innerWidth >= 1024) {
+						reusableDemoContent.style.alignItems = 'center';
+						reusableDemoContent.style.justifyContent = 'start';
+					}
+				}
+			}
+		});
   });
 
   tabButtons.forEach((button) => {
