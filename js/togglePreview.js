@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const tabButtons = document.querySelectorAll(".toggle-button");
-  const codeContainers = document.querySelectorAll(".code-container");
-  const tabList = document.getElementById("tab-list");
-  const tabListRect = tabList.getBoundingClientRect();
+	const tabButtons = document.querySelectorAll(".toggle-button");
+	const codeContainers = document.querySelectorAll(".code-container");
+	const tabList = document.getElementById("tab-list");
+	const tabListRect = tabList.getBoundingClientRect();
 
-  // The first button container is our reference, since the highlighter
-  // is initialized there. Any translations happen over this position.
-  const firstButtonContainer = document.querySelector(".button-container");
+	// The first button container is our reference, since the highlighter
+	// is initialized there. Any translations happen over this position.
+	const firstButtonContainer = document.querySelector(".button-container");
 
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+	tabButtons.forEach((button) => {
+		button.addEventListener("click", () => {
 			const currentButtonContainer = button.parentElement;
 			const currentButtonContainerRect =
 				currentButtonContainer.getBoundingClientRect();
@@ -55,24 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			const translateX = buttonRect.x - firstButtonContainerRect.x;
 
 			highlighter.style.transform = `translateX(${translateX}px)`;
-
-			const reusableCodeDemo = document.getElementById("reusable-code-demo");
-			const dynamicCodeDemo = document.getElementById("dynamic-code-demo");
-			const reusableDemoContent = document.getElementById("reusable-demo-content");
-			if (reusableCodeDemo) {
-				reusableCodeDemo.style.height = '552px';
-				dynamicCodeDemo.style.height = '552px';
-				if (button.id === "tab-reusable") {
-					if (window.innerWidth >= 1024) {
-						reusableDemoContent.style.alignItems = 'center';
-						reusableDemoContent.style.justifyContent = 'start';
-					}
-				}
-			}
 		});
-  });
+	});
 
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {});
-  });
+	tabButtons.forEach((button) => {
+		button.addEventListener("click", () => {});
+	});
 });

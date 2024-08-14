@@ -68,33 +68,20 @@ def code_display(file_name, code_snippet, snippet_id):
         Pre(
             Code(code_snippet, cls="python w-full mono-body"),
             id=snippet_id,
-            cls="code-snippet relative max-h-[25rem] overflow-hidden hide-scrollbar",
-        ),
-        Div(
-            cls="absolute code-fade-out bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#3a2234] pointer-events-none"
-        ),
-        cls=f"relative {col} gap-6 lg:max-w-[45rem] w-full overflow-hidden",
+            cls="code-snippet relative max-h-[25rem] overflow-hidden hide-scrollbar"),
+        Div(cls="absolute code-fade-out bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#3a2234] pointer-events-none"),
+        cls=f"relative {col} gap-6 lg:max-w-[45rem] w-full overflow-hidden"
     )
-
 
 def code_demo(title, file_name, code_snippet, demo_content, is_active=False):
     snippet_id = f"{title.lower().replace(' ', '-')}-code-snippet"
+    demo_cls = f"{center} my-11 p-4 flex-none whitespace-normal justify-center h-96 rounded-3xl bg-soft-purple lg:p-8 w-full max-w-2xl lg:max-w-md lg:mx-28 lg:my-8 overflow-y-auto {'lg:items-start hide-scrollbar' if snippet_id == 'reusable-code-snippet' else ''}"
     return Div(
-        Div(
-            code_display(file_name, code_snippet, snippet_id),
-            cls="lg:justify-start lg:items-start justify-center items-center",
-        ),
-        Div(
-            demo_content,
-            cls="flex flex-col items-center justify-center p-4 lg:p-8 w-full max-w-2xl lg:max-w-md lg:mx-28 lg:my-8 bg-soft-purple rounded-3xl h-96 hide-scrollbar",
-            style="overflow-y: auto;",
-            id=f"{title.lower().replace(' ', '-')}-demo-content"
-        ),
-        aria_labelledby=f"tab-{title.lower().replace(' ', '-')}",
-        role="tabpanel",
-        cls=f"code-container pt-8 lg:pt-16 tab-panel relative hide-scrollbar toggle-element flex flex-col lg:flex-row justify-center items-center lg:justify-between w-full lg:max-w-[1440px] xl:mx-auto {'hidden' if not is_active else ''}",
-        id=f"{title.lower().replace(' ', '-')}-code-demo",
-    )
+        code_display(file_name, code_snippet, snippet_id),
+        Div(demo_content, cls=demo_cls),
+        aria_labelledby=f"tab-{title.lower().replace(' ', '-')}", role="tabpanel",
+        cls=f"code-container pt-8 lg:pt-16 tab-panel relative hide-scrollbar toggle-element {col} lg:flex-row lg:justify-between overflow-hidden w-full lg:max-w-[1440px] xl:mx-auto {'hidden' if not is_active else ''}",
+        id=f"{title.lower().replace(' ', '-')}-code-demo")
 
 def tab_button(title, is_active=False):
     classes = f"z-10 button-container flex-none relative px-8 py-2 w-[10.59375rem] h-11 rounded-full {center}"
