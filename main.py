@@ -74,8 +74,8 @@ def code_display(file_name, code_snippet, snippet_id):
     )
 
 def code_demo(title, file_name, code_snippet, demo_content, is_active=False):
-    demo_cls = f"{center} my-11 p-4 flex-none whitespace-normal justify-center h-96 rounded-3xl bg-soft-purple lg:p-8 w-full max-w-2xl lg:max-w-md lg:mx-28 lg:my-8"
     snippet_id = f"{title.lower().replace(' ', '-')}-code-snippet"
+    demo_cls = f"{center} my-11 p-4 flex-none whitespace-normal justify-center h-96 rounded-3xl bg-soft-purple lg:p-8 w-full max-w-2xl lg:max-w-md lg:mx-28 lg:my-8 overflow-y-auto {'lg:items-start hide-scrollbar' if snippet_id == 'reusable-code-snippet' else ''}"
     return Div(
         code_display(file_name, code_snippet, snippet_id),
         Div(demo_content, cls=demo_cls),
